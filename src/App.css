@@ -1,9 +1,11 @@
-.App {
-  text-align: center;
+* { 
+  margin: 0;
+  padding: 0;
 }
 
-.App-header {
-  /* background-color: #282c34; */
+/* 
+.App {
+  background-color: #b4b7bd;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -11,4 +13,17 @@
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
+} */
+
+
+.main-column-template {
+  display: grid;
+  border: 1px solid red;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+.aside {
+  display: flex;
+  min-width: 200px;
+  color: aqua;
 }
