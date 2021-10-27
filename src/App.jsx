@@ -4,9 +4,10 @@ import AsideNavigation from "./Pages/AsideNavigation";
 import AsideUserProfile from "./Pages/AsideUserProfile";
 import Header from "./Pages/Header";
 import { Switch, Route } from "react-router-dom";
-// import React from "react";
+import React from "react";
+import { useEffect, useState } from "react";
 
-function App() {
+export default function App() {
   const [users, setUsers] = useState([]);
 
   console.log("inside state: ", users);
@@ -25,17 +26,11 @@ function App() {
       <Header />
       <div className="main-columns-template">
         <AsideNavigation />
+        <AsideUserProfile />
         <Switch>
           <Route exact path="/questions"></Route>
         </Switch>
-        <AsideUserProfile />
       </div>
     </div>
   );
 }
-
-export default App;
-
-// ==============
-// ||    ||    ||
-// ||    ||    |x|
