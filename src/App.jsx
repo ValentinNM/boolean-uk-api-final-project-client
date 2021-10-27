@@ -36,6 +36,7 @@ export default function App() {
       <Header />
       <div className="main-columns-template">
         <AsideNavigation />
+        <AsideUserProfile />
         <Switch>
           <Route exact path="/questions">
             <Questions
@@ -46,7 +47,6 @@ export default function App() {
             <AddQuestion/>
           </Route>
         </Switch>
-        <AsideUserProfile />
       </div>
     </div>
   );
