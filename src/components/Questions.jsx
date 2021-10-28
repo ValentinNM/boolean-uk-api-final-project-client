@@ -5,9 +5,9 @@ function Questions (props) {
     const {questions} = props;
     console.log("inside Questions controller: ", questions)
     return (
-        // <section className="all-questions">
+        <section className="all-questions">
             <ul>
-                { questions.map((question, index) => {
+                {/* { questions.map((question, index) => {
                     const {title, date, body, userId} = question; 
 
                     console.log("question content: ", question)
@@ -19,9 +19,9 @@ function Questions (props) {
                         </li>
                     )
                 })
-                }
+                } */}
             </ul>
-        // </section>
+         </section>
     )
 }
 

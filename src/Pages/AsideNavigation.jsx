@@ -4,7 +4,7 @@ export default function AsideNavigation() {
 
 
 return(
-    <aside className = "main-dashboard aside">
+    <aside className = "main-dashboard-section aside">
 
         <nav className="main-dash-nav">
 
