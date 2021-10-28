@@ -7,7 +7,7 @@ function Questions (props) {
     return (
         <section className="all-questions">
             <ul>
-                {/* { questions.map((question, index) => {
+                { questions.map((question, index) => {
                     const {title, date, body, userId} = question; 
 
                     console.log("question content: ", question)
@@ -19,7 +19,7 @@ function Questions (props) {
                         </li>
                     )
                 })
-                } */}
+                }
             </ul>
          </section>
     )
