@@ -10,8 +10,10 @@ import AddQuestion from "./components/AddQuestion";
 export default function App() {
   const [users, setUsers] = useState([]);
   const [questions, setQuestion] = useState([]);
+  const [tags, setTags] = useState([])
 
   console.log("inside state: ", users, "\n", "questions state: ", questions);
+  console.log("tags: ", tags)
 
   useEffect(() => {
     fetch(`http://localhost:3030/users`)
@@ -30,19 +32,34 @@ export default function App() {
     });
    }, []);
 
+   useEffect(() => {
+       fetch(`http://localhost:3030/tags`)
+         .then((res) => res.json())
+         .then((tagsData) => {
+           setTags(tagsData);
+         });
+     }, []);
+
+
   return (
     <div className="App">
       <Header />
       <div className="main-columns-template">
-        <AsideNavigation />
+        <AsideNavigation
+        tags={tags}
+        />
         <Switch>
           <Route exact path="/questions">
             <Questions
             questions={questions}
             />
           </Route>
-          <Route>
-            <AddQuestion/>
+          <Route exact path="/questions/add">
+            <AddQuestion 
+            tags={tags}
+            setQuestion={setQuestion}
+            questions={questions}
+            />
           </Route>
         </Switch>
         <AsideUserProfile 
