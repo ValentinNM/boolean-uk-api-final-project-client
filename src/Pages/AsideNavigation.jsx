@@ -1,25 +1,32 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
-export default function AsideNavigation() { 
+export default function AsideNavigation(props) { 
 
+const {tags} = props;
 
 return(
     <aside className = "main-dashboard-section aside">
 
         <nav className="main-dash-nav">
-
-            <Link to="/home"> Home </Link>
-
+        <div>
             <Link to="/questions"> Questions </Link>
-
+        </div>
+            <h3>Tags</h3>
         <section className="main-tags-section">
-            <div className="two-row-grid">
-            <Link to="/tags"> Tags </Link>
+            {/* <Link to="/tags"> Tags </Link> */}
             <ul>
-                <li className="tag">  </li>
+                {tags.map((tag)=> { 
+                    return(
+                        <div className="tag-element">
+                        <input type="checkbox"  />
+                        <li className="tag">{tag.name}</li>
+                        </div>
+                    )
+                })
+                }
             </ul>
-            </div>
-            <button> Clear all </button>
+            <button className="clear-button"> Clear all </button>
         </section>
 
         </nav>

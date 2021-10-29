@@ -44,7 +44,6 @@ header {
   height: 3.5vh;
   font-size: larger;
   padding-left: 1vh;
-  /* text-shadow: burlywood; */
   color: blueviolet;
 }
 
@@ -84,6 +83,19 @@ header {
   font-size: large;
   padding-left: 1vh;
   color: blueviolet;
+<<<<<<< HEAD
+=======
+}
+
+
+.input-title input{ 
+  min-width: 60vh;
+  /* max-width: 50vh; */
+  height: 3.5vh;
+  font-size: larger;
+  padding-left: 1vh;
+  /* color: blueviolet; */
+>>>>>>> 130163d7440f025734d9108cfea3b8ded1bbef13
 }
 
 /* Asides */
@@ -112,4 +124,18 @@ header {
   margin: 8px;
   padding: 4px;
   list-style: none;
+}
+
+
+
+.tag-element{
+  display: flex;
+  flex: auto;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+li{
+  list-style-type: none;
 }
