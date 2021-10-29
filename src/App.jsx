@@ -3,7 +3,7 @@ import AsideNavigation from "./Pages/AsideNavigation";
 import AsideUserProfile from "./Pages/AsideUserProfile";
 import Header from "./Pages/Header";
 import { Switch, Route } from "react-router-dom";
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react";
 import Questions from "./components/Questions";
 import AddQuestion from "./components/AddQuestion";
 import EditQuestion from "./components/EditQuestion";
@@ -53,10 +53,12 @@ export default function App() {
         />
         <Switch>
           <Route exact path="/questions">
-            <Questions
-            questions={questions}
-            />
+            <Questions questions={questions} setQuestion={setQuestion} />
           </Route>
+
+          {/* <Route>
+            <AddQuestion exact path="/questions/user/add" />
+          </Route> */}
           <Route exact path="/questions/user/add">
             <AddQuestion 
             tags={tags}
@@ -64,16 +66,16 @@ export default function App() {
             questions={questions}
             setQuestionToUpdate={setQuestionToUpdate}
             />
-            <EditQuestion exact path="questions/user/edit"
+            </Route>
+            <Route  exact path="questions/user/edit">
+            <EditQuestion 
             questions={questions}
             setQuestion={setQuestion}
             questionToUpdate={questionToUpdate}
             />
           </Route>
         </Switch>
-        <AsideUserProfile 
-        users={users}
-        />
+        <AsideUserProfile users={users} />
       </div>
     </div>
   );

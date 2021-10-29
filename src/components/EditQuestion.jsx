@@ -30,7 +30,7 @@ export default function EditQuestion(props) {
 
         event.preventDefault();
 
-        const updatedQuestion = {title, body, tags}
+        const updatedQuestion = "string " //{title, body, tags}
         
         const fetchOptions = { 
             method : "PATCH",
