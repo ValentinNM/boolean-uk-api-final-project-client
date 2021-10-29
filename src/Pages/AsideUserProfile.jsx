@@ -1,8 +1,8 @@
-import { Link, useHistory } from "react-router-dom";
+// import { Link, useHistory } from "react-router-dom";
 
 export default function AsideUserProfile(props) {
   const { users } = props;
-  console.log("users inside AsideUserProfile: ", users)
+  // console.log("users inside AsideUserProfile: ", users)
   return (
     <aside className="user-profile-section aside">
       <ul>

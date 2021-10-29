@@ -1,4 +1,4 @@
-import { useState } from "react";
+// import { useState } from "react";
 
 function Questions (props) { 
 
@@ -8,9 +8,9 @@ function Questions (props) {
         <section className="all-questions">
             <ul>
                 { questions.map((question, index) => {
-                    const {title, date, body, userId} = question; 
-
-                    console.log("question content: ", question)
+                    const {title, date, body} = question; 
+                    // user id for the above                    
+                    // console.log("question content: ", question)
                     return(
                         <li key={index} className="question-content">  
                             <h4>{title}</h4>

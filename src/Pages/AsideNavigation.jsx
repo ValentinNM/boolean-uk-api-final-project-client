@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+// import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 export default function AsideNavigation(props) { 
@@ -16,11 +16,11 @@ return(
         <section className="main-tags-section">
             {/* <Link to="/tags"> Tags </Link> */}
             <ul>
-                {tags.map((tag)=> { 
+                {tags.map((tag, index)=> { 
                     return(
-                        <div className="tag-element">
+                        <div key={index}  className="tag-element">
                         <input type="checkbox"  />
-                        <li className="tag">{tag.name}</li>
+                        <li  className="tag">{tag.name}</li>
                         </div>
                     )
                 })

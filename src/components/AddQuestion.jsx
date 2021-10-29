@@ -1,24 +1,24 @@
 import { useState } from "react";
-import { useEffect } from "react";
 
 export default function AddQuestion(props) { 
 
-    const {tags, questions, setQuestions} = props;
+    const {tags, questions, setQuestion, setQuestionToUpdate} = props;
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
-    const [userId, setUserId] = useState('');
-
-    const handleSubmit = (event) =>{
-
+    
+    const handleSubmit = (event)=>{
+        
         event.preventDefault();
-
+        
         const newQuestion ={ 
             title,
             body,
-            userId
+            userId : 6
         };
-
+        
+        console.log("newQuestion: ", newQuestion)
+        
         const fetchOptions = { 
             method: "POST",
             headers : { 
@@ -27,7 +27,7 @@ export default function AddQuestion(props) {
             body : JSON.stringify(newQuestion)
         };
 
-        fetch(`http://localhost:3030/questions`, fetchOptions)
+        fetch(`http://localhost:3030/questions/user/6`, fetchOptions)
         .then((res) => res.json())
         .then((addedQuestion) => {
             console.log("addedQuestion: ", addedQuestion);
@@ -36,7 +36,8 @@ export default function AddQuestion(props) {
                 ...addedQuestion
             }
 
-            setQuestions([ ...questions,questionToAdd])
+            setQuestion([...questions,questionToAdd]);
+            setQuestionToUpdate(questionToAdd)
         })
     }
 
@@ -88,9 +89,7 @@ export default function AddQuestion(props) {
                     {/* <h3>User</h3>
                     <h4>User to be incerted</h4> */}
                 </label>
-                <button type="submit"> 
-                    Post
-                </button>
+                <button type="submit">Post</button>
             </form>
         </section>
 

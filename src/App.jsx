@@ -6,11 +6,14 @@ import { Switch, Route } from "react-router-dom";
 import {useState, useEffect} from "react"
 import Questions from "./components/Questions";
 import AddQuestion from "./components/AddQuestion";
+import EditQuestion from "./components/EditQuestion";
 
 export default function App() {
   const [users, setUsers] = useState([]);
   const [questions, setQuestion] = useState([]);
   const [tags, setTags] = useState([])
+  const [questionToUpdate, setQuestionToUpdate] = useState([])
+  console.log("questionToUpdate: ", questionToUpdate);
 
   console.log("inside state: ", users, "\n", "questions state: ", questions);
   console.log("tags: ", tags)
@@ -27,7 +30,7 @@ export default function App() {
     fetch(`http://localhost:3030/questions`)
     .then((res)=> res.json())
     .then((data) => { 
-      console.log("questions...", data);
+      // console.log("questions...", data);
       setQuestion(data);
     });
    }, []);
@@ -54,11 +57,17 @@ export default function App() {
             questions={questions}
             />
           </Route>
-          <Route exact path="/questions/add">
+          <Route exact path="/questions/user/add">
             <AddQuestion 
             tags={tags}
             setQuestion={setQuestion}
             questions={questions}
+            setQuestionToUpdate={setQuestionToUpdate}
+            />
+            <EditQuestion exact path="questions/user/edit"
+            questions={questions}
+            setQuestion={setQuestion}
+            questionToUpdate={questionToUpdate}
             />
           </Route>
         </Switch>
