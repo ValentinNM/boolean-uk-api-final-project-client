@@ -5,6 +5,8 @@ export default function AsideUserProfile(props) {
   return (
     <aside className="user-profile-section">
       <ul>
+      <h3>Users</h3>
+      <br/>
         {users.map((user, index) => {
           const { userName } = user;
           return (

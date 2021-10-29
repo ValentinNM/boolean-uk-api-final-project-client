@@ -1,4 +1,4 @@
-// import { useEffect, useState } from "react";
+
 import { Link } from "react-router-dom";
 
 export default function AsideNavigation(props) { 
@@ -12,10 +12,11 @@ return(
         <div>
             <Link to="/questions"> Questions </Link>
         </div>
-            <h3>Tags</h3>
+            <br />
         <section className="main-tags-section">
-            {/* <Link to="/tags"> Tags </Link> */}
             <ul>
+                <h3>Tags</h3>
+                <br/>
                 {tags.map((tag, index)=> { 
                     return(
                         <div key={index}  className="tag-element">

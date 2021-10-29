@@ -13,8 +13,8 @@ export default function App() {
   const [questions, setQuestion] = useState([]);
   const [tags, setTags] = useState([])
   const [questionToUpdate, setQuestionToUpdate] = useState([])
+  
   console.log("questionToUpdate: ", questionToUpdate);
-
   console.log("inside state: ", users, "\n", "questions state: ", questions);
   console.log("tags: ", tags)
 
@@ -30,7 +30,6 @@ export default function App() {
     fetch(`http://localhost:3030/questions`)
     .then((res)=> res.json())
     .then((data) => { 
-      // console.log("questions...", data);
       setQuestion(data);
     });
    }, []);
@@ -53,21 +52,20 @@ export default function App() {
         />
         <Switch>
           <Route exact path="/questions">
-            <Questions questions={questions} setQuestion={setQuestion} />
+            <Questions
+                questions={questions}
+                setQuestion={setQuestion}
+                setQuestionToUpdate={setQuestionToUpdate}
+            />
           </Route>
-
-          {/* <Route>
-            <AddQuestion exact path="/questions/user/add" />
-          </Route> */}
           <Route exact path="/questions/user/add">
             <AddQuestion 
             tags={tags}
             setQuestion={setQuestion}
             questions={questions}
-            setQuestionToUpdate={setQuestionToUpdate}
             />
             </Route>
-            <Route  exact path="questions/user/edit">
+            <Route  exact path="/questions/user/edit">
             <EditQuestion 
             questions={questions}
             setQuestion={setQuestion}

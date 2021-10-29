@@ -1,16 +1,22 @@
-// import { useState } from "react";
+import { Link } from "react-router-dom";
 
-function Questions(props) {
-  const { questions, setQuestion } = props;
-  //   console.log("inside Questions controller: ", questions);
+export default function Questions(props) {
+  const { questions, setQuestion, setQuestionToUpdate } = props;
+
+
+
+  
   return (
     <section className="all-questions">
       <ul>
         {questions.map((question, index) => {
           const { title, date, body, userId } = question;
 
+          const handleQuestionToUpdate = (event) => { 
+            setQuestionToUpdate(question)
+          }
+
           const handleDeleteButton = (e) => {
-            // console.log("inside question by Id: ", question.id);
 
             const deleteButton = {
               method: "DELETE",
@@ -32,7 +38,11 @@ function Questions(props) {
               <h4>{title}</h4>
               <p>{body}</p>
               <p>{date}</p>
-              <button onClick={handleDeleteButton}>delete</button>
+              <button onClick={handleQuestionToUpdate}>
+                <Link to="/questions/user/edit">Update</Link>
+              </button>
+              <br />
+              <button onClick={handleDeleteButton}>Delete</button>
             </li>
           );
         })}
@@ -40,5 +50,3 @@ function Questions(props) {
     </section>
   );
 }
-
-export default Questions;

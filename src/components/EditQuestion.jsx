@@ -7,15 +7,14 @@ export default function EditQuestion(props) {
             questionToUpdate
         } = props;
 
-        // const {title, body, tags, date } = questionToUpdate; 
-
+        const {title, body, tags, date } = questionToUpdate
         console.log("props in EditQuestion: ", questionToUpdate)
 
         const [toUpdateQuestion, setToUpdateQuestion] = useState({ 
             title: "",
             body: "",
             userId: null, 
-            tags: [] // or {}
+            tags: []
         })
 
         useEffect(() => {
@@ -49,27 +48,31 @@ export default function EditQuestion(props) {
                 ...newUpdatedQuestion
             }
             
-            setQuestion([...questions, newUpdatedQuestion])
+            setQuestion([...questions, questionToPatch])
         })
     }
 
         const handleTitleInput = (event) => { 
-            console.log(event.target.value)
-            // setToUpdateQuestion(event.target.value)
+            console.log("handleTitleInput: ",event.target.value)
+            setToUpdateQuestion(event.target.value)
         }
 
         const handleBodyInput = (event) => { 
-            console.log(event.target.value)
-            // setToUpdateQuestion(event.target.value)
+            console.log("handleBodyInput", event.target.value)
+            setToUpdateQuestion(event.target.value)
         }
 
-        // handleTitleInput = (event) => { 
-        //     console.log(event.target.value)
+        // handleTagsInput = (event) => { 
+        //     console.log(event.target.checked)
+        // }
+
+        // handleTagsInput = (event) => { 
+        //     console.log(event.target.checked)
         // }
 
         
         return(
-            <section className="question-to-edit">
+            <section className="question-to-edit centering-section">
              <form className="question-form" name="editQuestion" onSubmit={handleSubmit}>
                 <div className="input-title">
                 <label htmlFor="">
@@ -92,24 +95,21 @@ export default function EditQuestion(props) {
                     <label htmlFor="">
                         <h3>Tags</h3>
                     </label>
-                    {
+                    <br />
                          <ul>
-                         {questionToUpdate.tags.map((tag, index)=> { 
-                             return(
-                                 <div key={index}>
+                         {/* {tags.map((tag, index)=> { 
+                             
+                             return( */}
+                                 {/* <div key={index}> */}
+                                 <div>
                                  <input type="checkbox"  />
-                                 <li className="tag">{tag.name}</li>
+                                 <li className="tag"></li>
                                  </div>
-                             )
-                         })
-                         }
+                        {/*       )
+                          })
+                          } */}
                      </ul>
-                    }
                 </div>
-                <label htmlFor="">
-                    {/* <h3>User</h3>
-                    <h4>User to be incerted</h4> */}
-                </label>
                 <button type="submit">Submit</button>
             </form>
         </section>

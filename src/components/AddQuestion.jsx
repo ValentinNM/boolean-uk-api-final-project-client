@@ -2,7 +2,7 @@ import { useState } from "react";
 
 export default function AddQuestion(props) { 
 
-    const {tags, questions, setQuestion, setQuestionToUpdate} = props;
+    const {tags, questions, setQuestion} = props;
 
     const [title, setTitle] = useState('');
     const [body, setBody] = useState('');
@@ -37,7 +37,6 @@ export default function AddQuestion(props) {
             }
 
             setQuestion([...questions,questionToAdd]);
-            setQuestionToUpdate(questionToAdd)
         })
     }
 
@@ -64,8 +63,6 @@ export default function AddQuestion(props) {
                 <label htmlFor="">
                     <h3>Body</h3>
                 </label>
-                {/* <input type="text" />
-                 */}
                  <textarea name="body" id="" cols="50" rows="20" onChange={handleBody}></textarea>
                 <div>
                     <label htmlFor="">
@@ -86,8 +83,6 @@ export default function AddQuestion(props) {
                     }
                 </div>
                 <label htmlFor="">
-                    {/* <h3>User</h3>
-                    <h4>User to be incerted</h4> */}
                 </label>
                 <button type="submit">Post</button>
             </form>
