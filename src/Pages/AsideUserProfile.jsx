@@ -2,14 +2,14 @@ import { Link, useHistory } from "react-router-dom";
 
 export default function AsideUserProfile(props) {
   const { users } = props;
-  console.log("users inside AsideUserProfile: ", users)
+  console.log("users inside AsideUserProfile: ", users);
   return (
-    <aside className="user-profile-section aside">
+    <aside className="user-profile-section">
       <ul>
-      {users.map((user, index) => {
-        const { userName } = user
-        return(
-               <li key={index}>
+        {users.map((user, index) => {
+          const { userName } = user;
+          return (
+            <li key={index}>
               <h3>{userName}</h3>
             </li>
           );

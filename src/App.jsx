@@ -3,7 +3,7 @@ import AsideNavigation from "./Pages/AsideNavigation";
 import AsideUserProfile from "./Pages/AsideUserProfile";
 import Header from "./Pages/Header";
 import { Switch, Route } from "react-router-dom";
-import {useState, useEffect} from "react"
+import { useState, useEffect } from "react";
 import Questions from "./components/Questions";
 import AddQuestion from "./components/AddQuestion";
 
@@ -23,12 +23,12 @@ export default function App() {
 
   useEffect(() => {
     fetch(`http://localhost:3030/questions`)
-    .then((res)=> res.json())
-    .then((data) => { 
-      console.log("questions...", data);
-      setQuestion(data);
-    });
-   }, []);
+      .then((res) => res.json())
+      .then((data) => {
+        console.log("questions...", data);
+        setQuestion(data);
+      });
+  }, []);
 
   return (
     <div className="App">
@@ -37,17 +37,13 @@ export default function App() {
         <AsideNavigation />
         <Switch>
           <Route exact path="/questions">
-            <Questions
-            questions={questions}
-            />
+            <Questions questions={questions} setQuestion={setQuestion} />
           </Route>
           <Route>
-            <AddQuestion/>
+            <AddQuestion />
           </Route>
         </Switch>
-        <AsideUserProfile 
-        users={users}
-        />
+        <AsideUserProfile users={users} />
       </div>
     </div>
   );
